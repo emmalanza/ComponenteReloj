@@ -24,7 +24,6 @@ public class ComponenteRelojTest extends Application {
         reloj.setFont(new Font(25));
 
         vBox.getChildren().add(reloj);
-        vBox.getChildren().add(new Label("Hola"));
         Scene scene = new Scene(vBox);
         stage.setScene(scene);
         stage.show();
