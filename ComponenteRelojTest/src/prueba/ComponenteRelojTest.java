@@ -1,12 +1,14 @@
 package prueba;
 
+import com.emma.Evento;
 import com.emma.Reloj;
+import com.emma.Tarea;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
+
 
 public class ComponenteRelojTest extends Application {
 
@@ -22,6 +24,13 @@ public class ComponenteRelojTest extends Application {
 
         reloj.start();
         reloj.setFont(new Font(25));
+        reloj.setFormato24h(false);
+        reloj.addEvento(new Evento() {
+           @Override
+           public void ejecuta(Tarea tarea) {
+
+           }
+       });
 
         vBox.getChildren().add(reloj);
         Scene scene = new Scene(vBox);
