@@ -25,12 +25,20 @@ public class ComponenteRelojTest extends Application {
         reloj.start();
         reloj.setFont(new Font(25));
         reloj.setFormato24h(false);
+        reloj.registraTarea(new Tarea(17,31,0, "Hola"));
         reloj.addEvento(new Evento() {
            @Override
            public void ejecuta(Tarea tarea) {
 
+               System.out.println(tarea.getDescripcion());
+
            }
        });
+
+
+
+
+
 
         vBox.getChildren().add(reloj);
         Scene scene = new Scene(vBox);

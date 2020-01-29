@@ -5,11 +5,12 @@ public class Tarea {
     private int horas, minutos, segundos;
     private String descripcion;
 
-    public Tarea(int horas, int minutos, int segundos) {
+    public Tarea(int horas, int minutos, int segundos, String descripcion) {
 
         this.horas = horas;
         this.minutos = minutos;
         this.segundos = segundos;
+        this.descripcion = descripcion;
 
     }
 
