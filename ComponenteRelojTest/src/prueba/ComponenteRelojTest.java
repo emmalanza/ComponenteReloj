@@ -25,7 +25,10 @@ public class ComponenteRelojTest extends Application {
         reloj.start();
         reloj.setFont(new Font(25));
         reloj.setFormato24h(false);
-        reloj.registraTarea(new Tarea(17,31,0, "Hola"));
+        Tarea tarea = new Tarea(17,41,0, "Hola");
+        reloj.registraTarea(tarea);
+        reloj.registraTarea(new Tarea(17,42,0, "Adiós"));
+        reloj.borraTarea(tarea);
         reloj.addEvento(new Evento() {
            @Override
            public void ejecuta(Tarea tarea) {

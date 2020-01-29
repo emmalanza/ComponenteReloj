@@ -93,5 +93,4 @@ public class Reloj extends Label {
         lista_de_tareas.remove(tarea);
     }
 
-
 }
