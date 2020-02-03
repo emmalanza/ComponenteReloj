@@ -4,6 +4,8 @@ import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.control.Label;
+
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Reloj extends Label {
@@ -13,6 +15,7 @@ public class Reloj extends Label {
     private BooleanProperty formato24h = new SimpleBooleanProperty(true);
     private ArrayList<Tarea> lista_de_tareas = new ArrayList<>();
     private Evento evento;
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public Reloj (){ super(); }
 
@@ -44,12 +47,16 @@ public class Reloj extends Label {
                     public void run() {
 
                         setText(calcula());
+                        Date d = new Date();
+                        String fecha = sdf.format(d);
 
                         if (lista_de_tareas!=null){
                             for (int i = 0; i<lista_de_tareas.size(); i++){
-                                if(lista_de_tareas.get(i).getHoras()==horas && lista_de_tareas.get(i).getMinutos()==minutos
-                                && lista_de_tareas.get(i).getSegundos() == segundos){
-                                    evento.ejecuta(lista_de_tareas.get(i));
+                                if(lista_de_tareas.get(i).getSdate().equals(fecha)) {
+                                    if (lista_de_tareas.get(i).getHoras() == horas && lista_de_tareas.get(i).getMinutos() == minutos
+                                            && lista_de_tareas.get(i).getSegundos() == segundos) {
+                                        evento.ejecuta(lista_de_tareas.get(i));
+                                    }
                                 }
 
                             }

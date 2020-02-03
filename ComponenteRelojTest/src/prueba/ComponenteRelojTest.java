@@ -9,6 +9,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.util.Date;
+
 
 public class ComponenteRelojTest extends Application {
 
@@ -22,12 +24,14 @@ public class ComponenteRelojTest extends Application {
         VBox vBox = new VBox();
         Reloj reloj = new Reloj();
 
+        Date d = new Date();
+
         reloj.start();
         reloj.setFont(new Font(25));
         reloj.setFormato24h(false);
-        Tarea tarea = new Tarea(17,41,0, "Hola");
+        Tarea tarea = new Tarea(d,17,41,0, "Hola");
         reloj.registraTarea(tarea);
-        reloj.registraTarea(new Tarea(17,42,0, "Adiós"));
+        reloj.registraTarea(new Tarea(d, 17,30,0, "Adiós"));
         reloj.borraTarea(tarea);
         reloj.addEvento(new Evento() {
            @Override

@@ -1,12 +1,20 @@
 package com.emma;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Tarea {
 
     private int horas, minutos, segundos;
+    private Date fecha;
     private String descripcion;
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Tarea(int horas, int minutos, int segundos, String descripcion) {
 
+
+    public Tarea(Date fecha, int horas, int minutos, int segundos, String descripcion) {
+
+        this.fecha = fecha;
         this.horas = horas;
         this.minutos = minutos;
         this.segundos = segundos;
@@ -46,5 +54,22 @@ public class Tarea {
         this.descripcion = descripcion;
     }
 
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getSdate(){
+        return sdf.format(fecha);
+    }
+
+    public String getSfecha(){
+
+        return sdf.format(fecha) + " " + horas + ":" + minutos;
+
+    }
 
 }
