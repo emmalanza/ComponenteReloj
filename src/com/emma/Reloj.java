@@ -46,6 +46,7 @@ public class Reloj extends Label {
                     @Override
                     public void run() {
 
+
                         setText(calcula());
                         Date d = new Date();
                         String fecha = sdf.format(d);
@@ -77,13 +78,12 @@ public class Reloj extends Label {
         horas = calendar.get(Calendar.HOUR_OF_DAY);
         minutos = calendar.get(Calendar.MINUTE);
         segundos = calendar.get(Calendar.SECOND);
-
+        String horas_12 = String.valueOf(calendar.get(Calendar.HOUR));
 
         if(formato24h.get()==false)
-            return String.valueOf(calendar.get(Calendar.HOUR)) + ":" + minutos + ":" + segundos;
+            return String.format("%02d:%02d:%02d",Integer.parseInt(horas_12),minutos,segundos);
 
-        return horas + ":" + minutos + ":" + segundos;
-
+        return String.format("%02d:%02d:%02d",horas,minutos,segundos);
 
     }
 
@@ -93,7 +93,6 @@ public class Reloj extends Label {
 
     public void addEvento(Evento evento){
         this.evento = evento;
-
     }
 
     public void borraTarea(Tarea tarea){
