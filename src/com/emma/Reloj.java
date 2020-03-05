@@ -99,6 +99,4 @@ public class Reloj extends Label {
         lista_de_tareas.remove(tarea);
     }
 
-    public ArrayList<Tarea> getLista_de_tareas(){return lista_de_tareas;}
-
 }
