@@ -16,6 +16,7 @@ public class Reloj extends Label {
     private ArrayList<Tarea> lista_de_tareas = new ArrayList<>();
     private Evento evento;
     private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    private Timer myTimer;
 
     public Reloj (){ super(); }
 
@@ -37,7 +38,7 @@ public class Reloj extends Label {
 
     public void start(){
 
-        Timer myTimer = new Timer();
+        myTimer = new Timer();
 
         myTimer.schedule(new TimerTask() {
             @Override
@@ -101,6 +102,11 @@ public class Reloj extends Label {
 
     public void sincronizar_lista(ArrayList<Tarea> tareas){
         lista_de_tareas = tareas;
+    }
+
+    public void finalizar(){
+        myTimer.cancel();
+        myTimer.purge();
     }
 
 }
